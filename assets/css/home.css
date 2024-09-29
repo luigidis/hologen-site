@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#app {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container-jumbotron {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.jumbotron-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Positioning Title and subtitle */
+.title, .subtitle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0; /* Inizia invisibile */
+    animation: fadeInUp 1.5s ease forwards; /* Animazione */
+}
+
+.title {
+    top: 20px; /* Distanza dal bordo superiore */
+    font-size: 3.5rem;
+    animation-delay: 0.5s; /* Ritardo per il titolo */
+}
+
+.subtitle {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    animation-delay: 1s; /* Ritardo per il sottotitolo */
+}
+
+/* Animazione di fade-in e movimento verso l'alto */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 20px); /* Inizia leggermente più in basso */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0); /* Sale e diventa visibile */
+    }
+}
+
+/* Effetto Hover sul Titolo */
+.title:hover, .subtitle:hover {
+    color: #FFD700; /* Cambia colore quando l'utente passa sopra */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Progress Bar */
+.progress-bar {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #333333;
+    width: 0;
+    animation: loading 5s linear infinite;
+    border-radius: 5px;
+}
+
+/* Animazione della barra di caricamento */
+@keyframes loading {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1450px) {
+    .title {
+        font-size: 4.5rem;
+    }
+    .subtitle {
+        font-size: 3rem;
+    }
+}
